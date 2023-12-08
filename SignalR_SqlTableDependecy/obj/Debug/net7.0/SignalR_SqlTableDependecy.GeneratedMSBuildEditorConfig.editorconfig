@@ -12,7 +12,7 @@ build_property.RootNamespace = SignalR_SqlTableDependecy
 build_property.ProjectDir = C:\AllProject\SignalR_SqlTableDependency\SignalR_SqlTableDependecy\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\AllProject\SignalR_SqlTableDependency\SignalR_SqlTableDependecy
 build_property._RazorSourceGeneratorDebug = 
 

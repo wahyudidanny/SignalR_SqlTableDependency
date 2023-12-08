@@ -5,7 +5,6 @@ namespace SignalR_SqlTableDependecy.Hubs
 {
     public class DashboardHub : Hub
     {
-
         private readonly ProductRepository _productRepository;
         private readonly string _connectionString = string.Empty;
         public DashboardHub(IConfiguration? configuration)

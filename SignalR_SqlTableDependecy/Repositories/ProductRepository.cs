@@ -30,7 +30,7 @@ namespace SignalR_SqlTableDependecy.Repositories
                     Id = Convert.ToInt32(row["Id"]),
                     Name = row["Name"].ToString(),
                     Category = row["Category"].ToString(),
-                    Price = Convert.ToInt32(row["Price"])
+                    Price = Convert.ToDecimal(row["Price"])
                 };
                 products.Add(product);
             }

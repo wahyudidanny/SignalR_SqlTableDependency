@@ -1,10 +1,16 @@
 using SignalR_SqlTableDependecy.Hubs;
+using SignalR_SqlTableDependecy.MiddlewareExtentions;
+using SignalR_SqlTableDependecy.SubscribeTableDependecies;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSignalR();
+
+// DI
+builder.Services.AddSingleton<DashboardHub>();
+builder.Services.AddSingleton<SubscribeProductTableDependecy>();
 
 var app = builder.Build();
 
@@ -18,13 +24,14 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseAuthorization();
+
 app.MapHub<DashboardHub>("/dashboardHub");
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Dashboard}/{action=Index}/{id?}");
 
+
+app.UseProductTableDependency();
 app.Run();
