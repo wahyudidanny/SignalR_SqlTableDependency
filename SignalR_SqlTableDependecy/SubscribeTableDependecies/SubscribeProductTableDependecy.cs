@@ -4,7 +4,7 @@ using TableDependency.SqlClient;
 
 namespace SignalR_SqlTableDependecy.SubscribeTableDependecies
 {
-    public class SubscribeProductTableDependecy
+    public class SubscribeProductTableDependecy : ISubscribeTableDependency
     {
 
         SqlTableDependency<Product> tableDependency;
@@ -15,9 +15,8 @@ namespace SignalR_SqlTableDependecy.SubscribeTableDependecies
             this.dashboardHub = dashboardHub;
         }
 
-        public void SubscribeTableDependency()
+        public void SubscribeTableDependency(string connectionString)
         {
-            string connectionString = "Data Source=10.100.1.26;Initial Catalog=NewFPSTesting;User ID=sa;Password=Jakarta123;Pooling=true;TrustServerCertificate=Yes;";
             tableDependency = new SqlTableDependency<Product>(connectionString);
             tableDependency.OnChanged += TableDependency_OnChanged;
             tableDependency.OnError += TableDependency_OnError;

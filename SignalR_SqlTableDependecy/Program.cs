@@ -1,3 +1,4 @@
+using SignalR_SqlTableDependecy;
 using SignalR_SqlTableDependecy.Hubs;
 using SignalR_SqlTableDependecy.MiddlewareExtentions;
 using SignalR_SqlTableDependecy.SubscribeTableDependecies;
@@ -8,12 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSignalR();
 
-// DI
-builder.Services.AddSingleton<DashboardHub>();
-builder.Services.AddSingleton<SubscribeProductTableDependecy>();
-builder.Services.AddSingleton<SubscribeSaleTableDependecy>();
-
+builder.RegisterDependency();
 var app = builder.Build();
+var connectionString = app.Configuration.GetConnectionString("DefaultConnection")??"NotConnected";
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -34,6 +32,7 @@ app.MapControllerRoute(
     pattern: "{controller=Dashboard}/{action=Index}/{id?}");
 
 
-app.UseProductTableDependency();
-app.UseSalesTableDependency();
+app.useSqlTableDependency<SubscribeProductTableDependecy>(connectionString);
+app.useSqlTableDependency<SubscribeSaleTableDependecy>(connectionString);
+
 app.Run();

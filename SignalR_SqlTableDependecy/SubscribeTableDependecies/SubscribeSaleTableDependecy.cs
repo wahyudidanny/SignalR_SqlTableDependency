@@ -1,12 +1,10 @@
 using SignalR_SqlTableDependecy.Hubs;
 using SignalR_SqlTableDependecy.Models;
 using TableDependency.SqlClient;
-using TableDependency.SqlClient.Base.EventArgs;
-
 
 namespace SignalR_SqlTableDependecy.SubscribeTableDependecies
 {
-    public class SubscribeSaleTableDependecy
+    public class SubscribeSaleTableDependecy: ISubscribeTableDependency
     {
         SqlTableDependency<Sales> tableDependency;
         DashboardHub dashboardHub;
@@ -16,9 +14,8 @@ namespace SignalR_SqlTableDependecy.SubscribeTableDependecies
             this.dashboardHub = dashboardHub;
         }
 
-        public void SubscribeTableDependency()
+        public void SubscribeTableDependency(string connectionString)
         {
-            string connectionString = "Data Source=10.100.1.26;Initial Catalog=NewFPSTesting;User ID=sa;Password=Jakarta123;Pooling=true;TrustServerCertificate=Yes;";
             tableDependency = new SqlTableDependency<Sales>(connectionString);
             tableDependency.OnChanged += TableDependency_OnChanged;
             tableDependency.OnError += TableDependency_OnError;
