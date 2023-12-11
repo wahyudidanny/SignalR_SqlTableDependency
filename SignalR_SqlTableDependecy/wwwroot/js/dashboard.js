@@ -40,7 +40,6 @@ function BindProductsToGrid(products) {
 //end Product
 
 
-
 //Sales
 function InvokeSales() {
 	connection.invoke("SendSales").catch(function (err) {

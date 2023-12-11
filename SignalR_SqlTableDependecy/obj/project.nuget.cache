@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZR0P+g6XGGJfxsyhdT1HWjlMyrkyPse1BSOhTwvMmXcepJi66Upy/PFjcjXBC334bBNjgfjXskjE70UT0auu3g==",
+  "dgSpecHash": "UBmVwIwqGrMcL/D7sSG7Xf4ArRtSv9XW5lMw1FUVUlypd0M9/Y5hNqHdh0278WHnELc9JLiL3XZoxciGk+5YiA==",
   "success": true,
-  "projectFilePath": "C:\\AllProject\\SignalR_SqlTableDependency\\SignalR_SqlTableDependecy\\SignalR_SqlTableDependecy.csproj",
+  "projectFilePath": "C:\\allproject\\SignalR_SqlTableDependency\\SignalR_SqlTableDependecy\\SignalR_SqlTableDependecy.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danny.wahyudi\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\6.0.0\\microsoft.aspnetcore.mvc.razor.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\danny.wahyudi\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\7.0.0\\microsoft.aspnetcore.mvc.razor.runtimecompilation.7.0.0.nupkg.sha512",

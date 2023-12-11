@@ -1,7 +1,8 @@
 using SignalR_SqlTableDependecy;
 using SignalR_SqlTableDependecy.Hubs;
-using SignalR_SqlTableDependecy.MiddlewareExtentions;
 using SignalR_SqlTableDependecy.SubscribeTableDependecies;
+using SignalR_SqlTableDependecy.Repositories;
+using SignalR_SqlTableDependecy.MiddlewareExtentions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,7 +31,6 @@ app.MapHub<DashboardHub>("/dashboardHub");
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Dashboard}/{action=Index}/{id?}");
-
 
 app.useSqlTableDependency<SubscribeProductTableDependecy>(connectionString);
 app.useSqlTableDependency<SubscribeSaleTableDependecy>(connectionString);

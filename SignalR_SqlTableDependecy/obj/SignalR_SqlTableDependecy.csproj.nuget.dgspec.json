@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\AllProject\\SignalR_SqlTableDependency\\SignalR_SqlTableDependecy\\SignalR_SqlTableDependecy.csproj": {}
+    "C:\\allproject\\SignalR_SqlTableDependency\\SignalR_SqlTableDependecy\\SignalR_SqlTableDependecy.csproj": {}
   },
   "projects": {
-    "C:\\AllProject\\SignalR_SqlTableDependency\\SignalR_SqlTableDependecy\\SignalR_SqlTableDependecy.csproj": {
+    "C:\\allproject\\SignalR_SqlTableDependency\\SignalR_SqlTableDependecy\\SignalR_SqlTableDependecy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\AllProject\\SignalR_SqlTableDependency\\SignalR_SqlTableDependecy\\SignalR_SqlTableDependecy.csproj",
+        "projectUniqueName": "C:\\allproject\\SignalR_SqlTableDependency\\SignalR_SqlTableDependecy\\SignalR_SqlTableDependecy.csproj",
         "projectName": "SignalR_SqlTableDependecy",
-        "projectPath": "C:\\AllProject\\SignalR_SqlTableDependency\\SignalR_SqlTableDependecy\\SignalR_SqlTableDependecy.csproj",
+        "projectPath": "C:\\allproject\\SignalR_SqlTableDependency\\SignalR_SqlTableDependecy\\SignalR_SqlTableDependecy.csproj",
         "packagesPath": "C:\\Users\\danny.wahyudi\\.nuget\\packages\\",
-        "outputPath": "C:\\AllProject\\SignalR_SqlTableDependency\\SignalR_SqlTableDependecy\\obj\\",
+        "outputPath": "C:\\allproject\\SignalR_SqlTableDependency\\SignalR_SqlTableDependecy\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
