@@ -4,43 +4,19 @@ using SignalR_SqlTableDependecy.Models;
 
 namespace SignalR_SqlTableDependecy.Repositories
 {
-    public class ProductRepository
+    public class SaleRepository
     {
+
         private readonly string _connectionString;
 
-        public ProductRepository(string connectionString)
+        public SaleRepository(string connectionString)
         {
             _connectionString = connectionString;
         }
 
-        public List<Product> GetProducts()
+        public DataTable GetSaleDetailsFromDb()
         {
-
-            List<Product> products = new List<Product>();
-            Product product;
-
-            var data = GetProductDetailFromDb();
-            foreach (DataRow row in data.Rows)
-            {
-                product = new Product
-                {
-                    Id = Convert.ToInt32(row["Id"]),
-                    Name = row["Name"].ToString(),
-                    Category = row["Category"].ToString(),
-                    Price = Convert.ToDecimal(row["Price"])
-                };
-                products.Add(product);
-            }
-
-            return products;
-
-        }
-
-
-
-        public DataTable GetProductDetailFromDb()
-        {
-            var query = "SELECT Id, Name, Category, Price FROM Product";
+            var query = "SELECT Id, Customer, Amount, PurchaseOn FROM sales";
             DataTable dataTable = new DataTable();
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -68,8 +44,32 @@ namespace SignalR_SqlTableDependecy.Repositories
                 }
             }
 
+        }
 
+
+        public List<Sales> GetSales()
+        {
+
+            List<Sales> sales = new List<Sales>();
+            Sales sale;
+
+            var data = GetSaleDetailsFromDb();
+            foreach (DataRow row in data.Rows)
+            {
+                sale = new Sales
+                {
+                    Id = Convert.ToInt32(row["Id"]),
+                    Customer = row["Customer"].ToString(),
+                    Amount = Convert.ToDecimal(row["Amount"]),
+                    PurchaseOn =  Convert.ToDateTime(row["PurchaseOn"].ToString())
+                };
+                sales.Add(sale);
+            }
+
+            return sales;
 
         }
+
+
     }
 }

@@ -11,6 +11,7 @@ builder.Services.AddSignalR();
 // DI
 builder.Services.AddSingleton<DashboardHub>();
 builder.Services.AddSingleton<SubscribeProductTableDependecy>();
+builder.Services.AddSingleton<SubscribeSaleTableDependecy>();
 
 var app = builder.Build();
 
@@ -34,4 +35,5 @@ app.MapControllerRoute(
 
 
 app.UseProductTableDependency();
+app.UseSalesTableDependency();
 app.Run();
