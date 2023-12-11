@@ -46,7 +46,6 @@ namespace SignalR_SqlTableDependecy.Repositories
 
         }
 
-
         public List<Sales> GetSales()
         {
 
@@ -67,9 +66,6 @@ namespace SignalR_SqlTableDependecy.Repositories
             }
 
             return sales;
-
         }
-
-
     }
 }

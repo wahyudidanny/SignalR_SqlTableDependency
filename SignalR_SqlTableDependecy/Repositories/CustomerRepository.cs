@@ -4,41 +4,41 @@ using SignalR_SqlTableDependecy.Models;
 
 namespace SignalR_SqlTableDependecy.Repositories
 {
-    public class ProductRepository
+    public class CustomerRepository
     {
         private readonly string _connectionString;
 
-        public ProductRepository(string connectionString)
+        public CustomerRepository(string connectionString)
         {
             _connectionString = connectionString;
         }
 
-        public List<Product> GetProducts()
+        public List<Customer> GetCustomers()
         {
 
-            List<Product> products = new List<Product>();
-            Product product;
+            List<Customer> customers = new List<Customer>();
+            Customer customer;
 
-            var data = GetProductDetailFromDb();
+            var data = GetCustomerDetailFromDb();
             foreach (DataRow row in data.Rows)
             {
-                product = new Product
+                customer = new Customer
                 {
-                    Id = Convert.ToInt32(row["Id"]),
-                    Name = row["Name"].ToString(),
-                    Category = row["Category"].ToString(),
-                    Price = Convert.ToDecimal(row["Price"])
+                    id = Convert.ToInt32(row["id"]),
+                    name = row["name"].ToString(),
+                    gender = row["gender"].ToString(),
+                    mobile = row["mobile"].ToString(),
                 };
-                products.Add(product);
+                customers.Add(customer);
             }
 
-            return products;
+            return customers;
 
         }
 
-        public DataTable GetProductDetailFromDb()
+        public DataTable GetCustomerDetailFromDb()
         {
-            var query = "SELECT Id, Name, Category, Price FROM Product";
+            var query = "SELECT Id, Name, Gender, Mobile FROM Customer";
             DataTable dataTable = new DataTable();
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -66,5 +66,6 @@ namespace SignalR_SqlTableDependecy.Repositories
                 }
             }
         }
+
     }
 }

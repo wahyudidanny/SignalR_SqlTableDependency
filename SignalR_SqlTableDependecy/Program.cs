@@ -34,5 +34,5 @@ app.MapControllerRoute(
 
 app.useSqlTableDependency<SubscribeProductTableDependecy>(connectionString);
 app.useSqlTableDependency<SubscribeSaleTableDependecy>(connectionString);
-
+app.useSqlTableDependency<SubscribeCustomerTableDependecy>(connectionString);
 app.Run();

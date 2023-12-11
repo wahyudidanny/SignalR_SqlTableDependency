@@ -4,9 +4,9 @@ using TableDependency.SqlClient;
 
 namespace SignalR_SqlTableDependecy.SubscribeTableDependecies
 {
-    public class SubscribeSaleTableDependecy: ISubscribeTableDependency
+    public class SubscribeSaleTableDependecy : ISubscribeTableDependency
     {
-        SqlTableDependency<Sales> tableDependency;
+        SqlTableDependency<Sales>? tableDependency;
         DashboardHub dashboardHub;
 
         public SubscribeSaleTableDependecy(DashboardHub dashboardHub)
@@ -22,18 +22,18 @@ namespace SignalR_SqlTableDependecy.SubscribeTableDependecies
             tableDependency.Start();
         }
 
-        private void TableDependency_OnChanged(object sender, TableDependency.SqlClient.Base.EventArgs.RecordChangedEventArgs<Sales> e)
-        {
-            if (e.ChangeType != TableDependency.SqlClient.Base.Enums.ChangeType.None)
-            {
-                dashboardHub.SendSales();
-
-            }
-        }
-
         private void TableDependency_OnError(object sender, TableDependency.SqlClient.Base.EventArgs.ErrorEventArgs e)
         {
             Console.WriteLine($"{nameof(Sales)} SqlTableDependecy error: {e.Error.Message}");
+        }
+
+        private async void TableDependency_OnChanged(object sender, TableDependency.SqlClient.Base.EventArgs.RecordChangedEventArgs<Sales> e)
+        {
+            if (e.ChangeType != TableDependency.SqlClient.Base.Enums.ChangeType.None)
+            {
+                await dashboardHub.SendSales();
+
+            }
         }
 
     }
